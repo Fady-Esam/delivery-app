@@ -1,0 +1,19 @@
+# Ignore build artifacts
+build/** linguist-generated
+
+# Ignore native iOS/Android build tool files
+ios/Pods/** linguist-vendored
+android/.gradle/** linguist-generated
+android/build/** linguist-generated
+
+# Ignore native desktop embedding code
+windows/** linguist-vendored
+linux/** linguist-vendored
+macos/** linguist-vendored
+
+# Make Dart language count
+*.dart linguist-detectable
+
+# Optional: Ignore IDE config folders
+.idea/** linguist-generated
+.vscode/** linguist-generated
