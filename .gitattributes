@@ -1,19 +1,40 @@
-# Ignore build artifacts
+# 📦 Build Artifacts (auto-generated)
 build/** linguist-generated
 
-# Ignore native iOS/Android build tool files
+# 📱 iOS Native (Pods are vendored)
 ios/Pods/** linguist-vendored
+ios/Runner/GeneratedPluginRegistrant.* linguist-generated
+
+# 🤖 Android Native
 android/.gradle/** linguist-generated
 android/build/** linguist-generated
+android/app/src/main/jniLibs/** linguist-vendored
+android/app/src/main/cpp/** linguist-vendored
 
-# Ignore native desktop embedding code
+# 🖥️ Desktop Embedding
 windows/** linguist-vendored
 linux/** linguist-vendored
 macos/** linguist-vendored
 
-# Make Dart language count
+# 🚫 Native Languages - Exclude from language breakdown
+*.c linguist-vendored
+*.cpp linguist-vendored
+*.cc linguist-vendored
+*.h linguist-vendored
+*.hpp linguist-vendored
+*.swift linguist-vendored
+*.kt linguist-vendored
+*.kts linguist-vendored
+*.java linguist-vendored
+*.mm linguist-vendored
+*.m linguist-vendored
+
+# ✅ Primary Language - Dart
 *.dart linguist-detectable
 
-# Optional: Ignore IDE config folders
+# 🧠 Optional: IDE & Tooling Folders
 .idea/** linguist-generated
 .vscode/** linguist-generated
+.flutter-plugins-dependencies linguist-generated
+.packages linguist-generated
+pubspec.lock linguist-generated
