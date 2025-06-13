@@ -6,7 +6,6 @@ import 'package:saree3_mobile/Features/auth/presentation/manager/cubits/sign_up_
 
 import '../../../../core/services/api_service.dart';
 import '../../../../core/utils/app_text_styles.dart';
-import '../../../../core/widgets/custom_app_bar.dart';
 import 'widgets/signup_view_body_bloc_consumer.dart';
 
 class SignupView extends StatelessWidget {

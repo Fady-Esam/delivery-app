@@ -1,3 +1,6 @@
 {
-    "title" : "Address"
+  "home": "Home",
+  "orders": "Orders",
+  "notifications": "Notifications",
+  "account": "Account"
 }

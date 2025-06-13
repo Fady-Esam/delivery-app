@@ -8,13 +8,20 @@ class PasswordField extends StatefulWidget {
     this.onSaved,
     this.hintText = 'كلمة المرور',
     this.validateConfirmedPassword,
+    this.textController,
+    this.onChanged,
+    this.isLogIn = false,
+    this.formKey,
   });
 
   final void Function(String?)? onSaved;
   final String hintText;
 
   final String? Function(String?)? validateConfirmedPassword;
-
+  final TextEditingController? textController;
+  final void Function(String?)? onChanged;
+  final bool isLogIn;
+  final GlobalKey<FormFieldState>? formKey;
   @override
   State<PasswordField> createState() => _PasswordFieldState();
 }
@@ -24,21 +31,32 @@ class _PasswordFieldState extends State<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
+      formKey: widget.formKey,
+      textController: widget.textController,
+      onChanged: widget.onChanged,
       obscureText: obscureText,
       onSaved: widget.onSaved,
-      validatePassword: widget.hintText == "كلمة المرور" ?  (value) {
-        if (value == null || value.isEmpty) {
-          return 'هذا الحقل مطلوب';
-        }
-        return validatePassword(value);
-      } : widget.validateConfirmedPassword,
+      validatePassword: widget.hintText == "كلمة المرور"
+          ? (value) {
+              if (value == null || value.isEmpty) {
+                return 'هذا الحقل مطلوب';
+              }
+              if (widget.isLogIn && value.length < 8) {
+                return 'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل';
+              }
+              if (!widget.isLogIn) {
+                return validatePassword(value);
+              }
+              return null;
+            }
+          : widget.validateConfirmedPassword,
       suffixIcon: GestureDetector(
         onTap: () {
           obscureText = !obscureText;
           setState(() {});
         },
         child: obscureText
-            ? const Icon(
+            ? Icon(
                 Icons.remove_red_eye,
                 color: Color(0xffC9CECF),
               )

@@ -8,7 +8,8 @@ plugins {
 android {
     namespace = "com.example.saree3_mobile"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    //ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -42,4 +43,7 @@ android {
 
 flutter {
     source = "../.."
+}
+dependencies {
+    implementation "androidx.work:work-runtime-ktx:2.8.1"
 }

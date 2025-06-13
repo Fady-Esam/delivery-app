@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../funcs/get_responsive_text.dart';
+
+
 void showSnackBarFun({
   required BuildContext context,
   required String text,
@@ -9,7 +12,9 @@ void showSnackBarFun({
   final snackBar = SnackBar(
     content: Text(
       text,
-      style: const TextStyle(color: Colors.white),
+      style:  TextStyle(color: Colors.white,
+      fontSize: getResponsiveFontSize(context, fontSize: 16)
+      ),
     ),
     //backgroundColor: backgroundColor,
     duration: Duration(seconds: 3),

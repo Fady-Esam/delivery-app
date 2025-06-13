@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 
+import '../../../../../core/funcs/get_responsive_text.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 
 class OrDivider extends StatelessWidget {
@@ -8,7 +9,7 @@ class OrDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return  Row(
       children: [
         Expanded(
           child: Divider(
@@ -21,7 +22,9 @@ class OrDivider extends StatelessWidget {
         Text(
           'أو',
           textAlign: TextAlign.center,
-          style: TextStyles.semiBold16,
+          style: TextStyles.semiBold16.copyWith(
+            fontSize: getResponsiveFontSize(context, fontSize: 16)
+          ),
         ),
         SizedBox(
           width: 18,

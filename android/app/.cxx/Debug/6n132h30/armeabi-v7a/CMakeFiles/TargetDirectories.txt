@@ -1,0 +1,2 @@
+C:/Users/DELL/Desktop/Saree3_Project/saree3_mobile/android/app/.cxx/Debug/6n132h30/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/DELL/Desktop/Saree3_Project/saree3_mobile/android/app/.cxx/Debug/6n132h30/armeabi-v7a/CMakeFiles/rebuild_cache.dir

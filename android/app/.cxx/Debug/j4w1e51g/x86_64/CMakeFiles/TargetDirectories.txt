@@ -1,0 +1,2 @@
+C:/Users/DELL/Desktop/Saree3_Project/saree3_mobile/android/app/.cxx/Debug/j4w1e51g/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/DELL/Desktop/Saree3_Project/saree3_mobile/android/app/.cxx/Debug/j4w1e51g/x86_64/CMakeFiles/rebuild_cache.dir

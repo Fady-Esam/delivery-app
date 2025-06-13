@@ -9,7 +9,6 @@ import 'package:saree3_mobile/Features/auth/data/models/sign_up_model.dart';
 import 'package:saree3_mobile/Features/auth/domain/repos/auth_repo.dart';
 import 'package:saree3_mobile/core/services/api_service.dart';
 
-import '../../../../core/services/background_service_manager.dart';
 import '../../../../core/services/token_manager.dart';
 
 class AuthRepoImpl implements AuthRepo {
@@ -45,7 +44,7 @@ class AuthRepoImpl implements AuthRepo {
       var authModelData = AuthModel.fromJson(data);
       await TokenManager.saveTokens(
           authModelData.token, authModelData.refreshToken);
-      BackgroundServiceManager.scheduleTokenRefresh();
+      //BackgroundServiceManager.scheduleTokenRefresh();
       return right(authModelData);
     } catch (e) {
       return left("Server Failure, Please try again");
@@ -82,7 +81,7 @@ class AuthRepoImpl implements AuthRepo {
       var authModelData = AuthModel.fromJson(data);
       await TokenManager.saveTokens(
           authModelData.token, authModelData.refreshToken);
-      BackgroundServiceManager.scheduleTokenRefresh();
+      //BackgroundServiceManager.scheduleTokenRefresh();
       return right(authModelData);
     } catch (e) {
       return left("Server Failure, Please try again");

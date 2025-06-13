@@ -3,6 +3,8 @@
         android:label="saree3_mobile"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

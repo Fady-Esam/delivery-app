@@ -4,8 +4,8 @@ import 'package:saree3_mobile/Features/auth/data/repos/auth_repo_impl.dart';
 import 'package:saree3_mobile/Features/auth/presentation/manager/cubits/log_in_cubit/log_in_cubit.dart';
 import 'package:saree3_mobile/core/services/api_service.dart';
 
+import '../../../../core/funcs/get_responsive_text.dart';
 import '../../../../core/utils/app_text_styles.dart';
-import '../../../../core/widgets/custom_app_bar.dart';
 import 'widgets/signin_view_body_bloc_consumer.dart';
 
 class SigninView extends StatelessWidget {
@@ -22,7 +22,10 @@ class SigninView extends StatelessWidget {
         appBar: AppBar(
         title: Text(
           "تسجيل دخول",
-          style: TextStyles.bold23,
+          style: TextStyles.bold23.copyWith(
+            fontSize: getResponsiveFontSize(context, fontSize: 23)
+          ),
+          
         ),
         centerTitle: true,
       ),

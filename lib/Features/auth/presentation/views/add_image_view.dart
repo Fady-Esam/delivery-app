@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:saree3_mobile/Features/auth/presentation/views/profile_photo_screen.dart';
+import 'package:saree3_mobile/Features/auth/presentation/views/widgets/profile_photo_screen.dart';
 
-import 'widgets/add_image_body.dart';
 
 class AddImageView extends StatelessWidget {
   const AddImageView({super.key});

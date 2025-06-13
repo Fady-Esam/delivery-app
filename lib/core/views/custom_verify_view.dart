@@ -1,6 +1,8 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:saree3_mobile/core/funcs/get_responsive_text.dart';
 
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
@@ -48,22 +50,23 @@ class _CustomVerifyViewState extends State<CustomVerifyView> {
       appBar: AppBar(
         title: Text(
           "التحقق من الرمز",
-          style: TextStyles.bold23,
+          style: TextStyles.bold23
+              .copyWith(fontSize: getResponsiveFontSize(context, fontSize: 23)),
         ),
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '${widget.phoneNumber} أدخل الرمز التأكيدي الذي أرسلناه إلى رقم',
+              'أدخل الرمز التأكيدي الذي ارسلناه الي ${widget.phoneNumber}',
               style: TextStyles.semiBold16.copyWith(
-                color: const Color.fromARGB(255, 83, 88, 88),
-              ),
+                  color: const Color.fromARGB(255, 83, 88, 88),
+                  fontSize: getResponsiveFontSize(context, fontSize: 16)),
             ),
-            const SizedBox(height: 22),
+            SizedBox(height: 22.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(4, (index) {
@@ -84,12 +87,20 @@ class _CustomVerifyViewState extends State<CustomVerifyView> {
                 );
               }).reversed.toList(),
             ),
-            const SizedBox(height: 22),
-            CustomButton(
-              onPressed: _handleInputComplete,
-              text: "تحقق من الرمز",
+            SizedBox(height: 28.h),
+            Align(
+              child: SizedBox(
+                width: MediaQuery.sizeOf(context).width * 0.6,
+                child: CustomButton(
+                  onPressed: () {
+                    // check isFromForgottonPassword
+                    // Logic To Verify
+                  },
+                  text: "تحقق من الرمز",
+                ),
+              ),
             ),
-            const SizedBox(height: 18),
+            SizedBox(height: 18.h),
             InkWell(
               onTap: () {
                 // Logic To Resend
@@ -100,7 +111,7 @@ class _CustomVerifyViewState extends State<CustomVerifyView> {
                   "إعادة إرسال الرمز",
                   style: TextStyles.semiBold16.copyWith(
                     color: AppColors.primaryColor,
-                    fontSize: 18,
+                    fontSize: getResponsiveFontSize(context, fontSize: 18),
                   ),
                 ),
               ),
@@ -131,9 +142,9 @@ class CodeInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * .16,
-      height: 65,
-      margin: const EdgeInsets.symmetric(horizontal: 8),
+      width: MediaQuery.of(context).size.width * .15,
+      height: MediaQuery.of(context).size.height * .1,
+      margin: EdgeInsets.symmetric(horizontal: 8.w),
       decoration: BoxDecoration(
         color: const Color(0xffF9FAFA),
         borderRadius: BorderRadius.circular(6),
@@ -149,37 +160,41 @@ class CodeInputField extends StatelessWidget {
           width: 1,
         ),
       ),
-      child: TextFormField(
-        controller: controller,
-        focusNode: focusNode,
-        autofocus: autoFocus,
-        textAlign: TextAlign.center,
-        keyboardType: TextInputType.number,
-        maxLength: 1,
-        inputFormatters: [
-          FilteringTextInputFormatter.digitsOnly,
-        ],
-        onChanged: (value) {
-          if (value.isNotEmpty) {
-            onChanged(value);
-            if (nextFocusNode != null) {
-              FocusScope.of(context).requestFocus(nextFocusNode);
+      child: Center(
+        child: TextFormField(
+          textAlign: TextAlign.center,
+          textAlignVertical: TextAlignVertical.center,
+          cursorHeight: 60.h,
+          controller: controller,
+          focusNode: focusNode,
+          autofocus: autoFocus,
+          keyboardType: TextInputType.number,
+          maxLength: 1,
+          inputFormatters: [
+            FilteringTextInputFormatter.digitsOnly,
+          ],
+          onChanged: (value) {
+            if (value.isNotEmpty) {
+              onChanged(value);
+              if (nextFocusNode != null) {
+                FocusScope.of(context).requestFocus(nextFocusNode);
+              } else {
+                focusNode.unfocus();
+              }
             } else {
-              focusNode.unfocus();
+              if (focusNode.hasFocus && value.isEmpty) {
+                FocusScope.of(context).previousFocus();
+              }
             }
-          } else {
-            if (focusNode.hasFocus && value.isEmpty) {
-              FocusScope.of(context).previousFocus();
-            }
-          }
-        },
-        style: TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.bold,
-        ),
-        decoration: const InputDecoration(
-          border: InputBorder.none,
-          counterText: '',
+          },
+          style: TextStyle(
+            fontSize: getResponsiveFontSize(context, fontSize: 30),
+            fontWeight: FontWeight.bold,
+          ),
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            counterText: '',
+          ),
         ),
       ),
     );

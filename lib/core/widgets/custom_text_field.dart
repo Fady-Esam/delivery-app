@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../funcs/get_responsive_text.dart';
 import '../utils/app_text_styles.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -10,6 +11,9 @@ class CustomTextFormField extends StatelessWidget {
     this.onSaved,
     this.obscureText = false,
     this.validatePassword,
+    this.textController,
+    this.onChanged,
+    this.formKey,
   });
   final String hintText;
   final TextInputType textInputType;
@@ -17,34 +21,49 @@ class CustomTextFormField extends StatelessWidget {
   final void Function(String?)? onSaved;
   final bool obscureText;
   final String? Function(String?)? validatePassword;
+  final void Function(String?)? onChanged;
+  final TextEditingController? textController;
+  final GlobalKey<FormFieldState>? formKey;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      key: formKey,
+      controller: textController,
+      onChanged: onChanged,
       obscureText: obscureText,
       onSaved: onSaved,
-      validator: hintText == "كلمة المرور" || hintText == "تأكيد كلمة المرور" ? validatePassword :  (value) {
-        if (value == null || value.isEmpty) {
-          return 'هذا الحقل مطلوب';
-        }
-        if (textInputType == TextInputType.emailAddress &&
-            !isValidEmail(value)) {
-          return 'بريد الكتروني غير صالح';
-        }
-        if (textInputType == TextInputType.phone &&
-            !(RegExp(r'^01[0|1|2|5][0-9]{8}$')).hasMatch(value)) {
-          return 'رقم هاتف غير صالح';
-        }
-        if (textInputType == TextInputType.name &&
-            (value.trim().length < 3 || value.trim().length > 20)) {
-          return 'الاسم يجب الا يقل عن 3 ولا يزيد عن 20';
-        }
-        return null;
-      },
+      validator: hintText == "كلمة المرور" || hintText == "تأكيد كلمة المرور"
+          ? validatePassword
+          : (value) {
+              if (value == null || value.isEmpty) {
+                return 'هذا الحقل مطلوب';
+              }
+              if (textInputType == TextInputType.emailAddress &&
+                  !isValidEmail(value)) {
+                return 'بريد الكتروني غير صحيح أو غير صالح للدخول';
+              }
+              if (textInputType == TextInputType.phone &&
+                  !(RegExp(r'^01[0|1|2|5][0-9]{8}$')).hasMatch(value)) {
+                return 'رقم هاتف غير صالح';
+              }
+              if (textInputType == TextInputType.name &&
+                  (value.trim().length < 3 || value.trim().length > 20)) {
+                return 'الاسم يجب الا يقل عن 3 ولا يزيد عن 20';
+              }
+              return null;
+            },
       keyboardType: textInputType,
       decoration: InputDecoration(
+        errorMaxLines: 3,
+        errorStyle: TextStyle(
+          fontSize: getResponsiveFontSize(context, fontSize: 13),
+          fontWeight: FontWeight.bold,
+          
+        ),
         suffixIcon: suffixIcon,
         hintStyle: TextStyles.bold13.copyWith(
           color: const Color(0xFF949D9E),
+          fontSize: getResponsiveFontSize(context, fontSize: 13),
         ),
         hintText: hintText,
         filled: true,

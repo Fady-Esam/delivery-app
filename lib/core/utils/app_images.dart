@@ -2,11 +2,20 @@
 class Assets {
   Assets._();
 
+  static const String imageMotorCycleRider = "assets/images/motor_cycle_rider.png";
+  static const String imageBicycleRider = "assets/images/bicycle_rider.png";
+  static const String imageTricycleRider = "assets/images/tricycle_rider.png";
+  static const String imageSkateRider = "assets/images/skate_rider.png";
 
+  static const String imageHomeIcon = "assets/images/home-04.svg";
+  static const String imageUserProfileIcon = "assets/images/user-profile-02.svg";
+  static const String imageNotificationIcon= "assets/images/bell-ringing-03.svg";
+  static const String imageOrdersIcon = "assets/images/bag-05.svg";
+  
+  
   static const String imageChooseRider = "assets/images/choose_rider.png";
   static const String imageChooseCustomer = "assets/images/choose_customer.png";
-  static const String imageMotorCycleRider = "assets/images/motorCycleRide.svg";
-  static const String imageBikeRider = "assets/images/Colorful_Modern_Bicycle_Ride_Logo.svg";
+  //static const String imageMotorCycleRider = "assets/images/motorCycleRide.svg";
 
 
   /// Assets for imagesAppIcon
