@@ -16,12 +16,16 @@ windows/** linguist-vendored
 linux/** linguist-vendored
 macos/** linguist-vendored
 
-# 🚫 Native Languages - Exclude from language breakdown
+# ⚙️ Native Build Systems (C/C++/CMake)
 *.c linguist-vendored
 *.cpp linguist-vendored
 *.cc linguist-vendored
 *.h linguist-vendored
 *.hpp linguist-vendored
+*.cmake linguist-vendored
+CMakeLists.txt linguist-vendored
+
+# ☕ Mobile Native Languages
 *.swift linguist-vendored
 *.kt linguist-vendored
 *.kts linguist-vendored
@@ -29,10 +33,14 @@ macos/** linguist-vendored
 *.mm linguist-vendored
 *.m linguist-vendored
 
+# 🌐 HTML (docs or web UI not core to repo)
+*.html linguist-vendored
+*.htm linguist-vendored
+
 # ✅ Primary Language - Dart
 *.dart linguist-detectable
 
-# 🧠 Optional: IDE & Tooling Folders
+# 🧠 IDE & Tooling
 .idea/** linguist-generated
 .vscode/** linguist-generated
 .flutter-plugins-dependencies linguist-generated
