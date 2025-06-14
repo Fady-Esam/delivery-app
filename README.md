@@ -29,7 +29,7 @@ Currently under active development and debugging.
 
 ## 🛠️ Languages & Tools
 <p align="left"> 
-        <img src="https://skillicons.dev/icons?i=flutter,dart,postman,vscode,visualstudio,git,github" alt="Tech stack icons" />
+        <img src="https://skillicons.dev/icons?i=flutter,dart,postman,vscode,git,github" alt="Tech stack icons" />
 </p
 
 ---
