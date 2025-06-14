@@ -60,6 +60,12 @@ Currently under active development and debugging.
 
 ---
 
+## 🔗 Related Projects
+
+- 🔧 [Backend RESTful API (ASP.NET Core)](https://github.com/Fady-Esam/delivery-api-aspnetcore) — The backend API powering this Flutter app.
+
+---
+
 ## 📫 Connect With Me
 <h5 align="left"> 
 <a href="https://www.linkedin.com/in/fady-esam/" target="_blank"> 
@@ -70,4 +76,5 @@ Currently under active development and debugging.
     <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" height="45" width="50" /> 
 </a> 
 </h5>
+
 
