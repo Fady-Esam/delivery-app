@@ -2,7 +2,8 @@
 
 A Flutter delivery app designed to streamline order delivery via bike and motorcycle.  
 Includes both driver and customer modules, focusing on real-time order handling, tracking, and communication, integrated with a custom RESTful API.  
-Currently under active development and debugging.
+Built with **MVVM** architecture for scalability and maintainability and **BLoC** pattern for predictable and scalable UI logic.
+Currently under active development and debugging.  
 
 ---
 
@@ -25,6 +26,8 @@ Currently under active development and debugging.
 - 🎯 Onboarding Flow for first-time users  
 - 🌐 Multi-language Support (Arabic & English)
 - 🎨 Light/Dark Theme Switching
+- 🗂️ MVVM Architecture with a clear separation of concerns between Model, View, and ViewModel layers for scalability and maintainability    
+- 🧠 Robust State Management built with the BLoC pattern for predictable and scalable UI logic  
 
 ---
 
