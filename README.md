@@ -3,7 +3,7 @@
 A **Flutter** delivery app designed to streamline order delivery via bike and motorcycle.  
 Includes both driver and customer modules, focusing on real-time order handling, tracking, and communication, integrated with a custom **RESTful API**.  
 Built with **MVVM** architecture for scalability and maintainability and **BLoC** pattern for predictable and scalable UI logic.  
-Currently under active development and debugging.  
+*Currently under active development and debugging.*  
 
 ---
 
